@@ -29,7 +29,7 @@ class _SplashPageState extends State<SplashPage> {
 
       if (number == 0) {
         print("倒计时结束!");
-        Navigator.pushReplacement(
+        Navigator.push(
           context,
           MaterialPageRoute(
             builder: (context) => const WelcomePage(),
@@ -85,11 +85,21 @@ class _SplashPageState extends State<SplashPage> {
             borderRadius: BorderRadius.circular(60),
           ),
         ),
-        Image.asset(
-          AssetsImages.logoPng,
-          width: 84,
-          height: 80.45,
-        )
+        InkWell(
+          onLongPress: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) {
+                return const WelcomePage();
+              }),
+            );
+          },
+          child: Image.asset(
+            AssetsImages.logoPng,
+            width: 84,
+            height: 80.45,
+          ),
+        ),
       ],
     );
   }

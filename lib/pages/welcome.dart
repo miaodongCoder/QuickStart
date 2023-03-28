@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:quickstart/common/asstes.dart';
+import 'package:quickstart/pages/login.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({super.key});
@@ -10,12 +11,12 @@ class WelcomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: _buildView(),
+        child: _buildView(context),
       ),
     );
   }
 
-  Widget _buildView() {
+  Widget _buildView(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -24,7 +25,7 @@ class WelcomePage extends StatelessWidget {
         const SizedBox(height: 70),
         _buildImage(),
         const SizedBox(height: 70),
-        _buildButton(),
+        _buildButton(context),
         const SizedBox(height: 50),
       ],
     );
@@ -54,7 +55,7 @@ class WelcomePage extends StatelessWidget {
     );
   }
 
-  Widget _buildButton() {
+  Widget _buildButton(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(
         horizontal: 24,
@@ -64,7 +65,7 @@ class WelcomePage extends StatelessWidget {
         children: [
           TextButton(
             onPressed: () {
-              print("跳过!");
+              Navigator.pop(context);
             },
             child: const Text(
               "Skip",
@@ -85,7 +86,14 @@ class WelcomePage extends StatelessWidget {
             ),
             child: ElevatedButton(
               onPressed: () {
-                print("开始!");
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return const LoginPage();
+                    },
+                  ),
+                );
               },
               style: ButtonStyle(
                 elevation: MaterialStateProperty.all(0),

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:quickstart/pages/splash.dart';
-import 'package:quickstart/pages/welcome.dart';
 
 void main(List<String> args) {
   runApp(const MyApp());
