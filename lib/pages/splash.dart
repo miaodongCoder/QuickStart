@@ -1,8 +1,9 @@
-// ignore_for_file: avoid_print
+// ignore_for_file: avoid_print, use_build_context_synchronously
 
 import 'package:flutter/material.dart';
 import 'package:quickstart/common/app_colors.dart';
 import 'package:quickstart/common/asstes.dart';
+import 'package:quickstart/pages/welcome.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
@@ -28,6 +29,12 @@ class _SplashPageState extends State<SplashPage> {
 
       if (number == 0) {
         print("倒计时结束!");
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const WelcomePage(),
+          ),
+        );
       }
     }
   }
